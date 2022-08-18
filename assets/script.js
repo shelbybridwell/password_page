@@ -23,11 +23,22 @@ function shuffleArray(array) {
   return array;
 }
 document.getElementById("generate").addEventListener("click", myFunction);
- // var numResult = prompt("Enter a name you want to be called");
-  //var uppercharResult = prompt("Inlude captitol letters? ")
+ // var numResult = prompt("How many characters would you like to include? (Must be between 8-128 chararacters.)");
+ //if (numResult= i <= 8 and >=128) {
+//document.getElementById("password").value = numResult;
+//}
+ //var uppercharResult = prompt("Inlude captitol letters? ")
+//if (uppercharResult = yes){
+
+ // }
  // var lowercharResult = prompt("Inlude captitol letters? ")
- // var specialcharResult = prompt("Inlude captitol letters? ")
- //  if yes ()
+ //if (uppercharResult = yes){
+
+// }
+// var specialcharResult = prompt("Inlude captitol letters? ")
+// if (uppercharResult = yes){
+
+ //}
 function myFunction() {
   document.getElementById("password").innerHTML =  (generatePassword(10));
 }
