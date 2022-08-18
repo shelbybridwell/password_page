@@ -35,7 +35,7 @@ document.getElementById("generate").addEventListener("click", myFunction);
  //if (uppercharResult = yes){
 
 // }
-// var specialcharResult = prompt("Inlude captitol letters? ")
+// var specialcharResult = prompt("Inlude numbers? ")
 // if (uppercharResult = yes){
 
  //}
