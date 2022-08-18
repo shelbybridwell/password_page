@@ -1,22 +1,27 @@
-// Assignment code here
-
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function createPassword(length) {
-  let password = '';
-  const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let passwordLength = length;
-
-  const array = new Uint32Array(length);
-  window.crypto.getRandomValues(array);
-
-  for (i=0; i<length; i++) {
-    password += chars[array[i] % chars.length];
-  }
+function generatePassword(passwordLength) {
+  var numberChars = "0123456789";
+  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+  var allChars = numberChars + upperChars + lowerChars;
+  var randPasswordArray = Array(passwordLength);
+  randPasswordArray[0] = numberChars;
+  randPasswordArray[1] = upperChars;
+  randPasswordArray[2] = lowerChars;
+  randPasswordArray = randPasswordArray.fill(allChars, 3);
+  return shuffleArray(randPasswordArray.map(function(x) { return x[Math.floor(Math.random() * x.length)] })).join('');
 }
-createPassword(5)
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+document.getElementById("generate").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("password").innerHTML =  (generatePassword(10));
+}
