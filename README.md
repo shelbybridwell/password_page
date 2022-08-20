@@ -17,6 +17,7 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
+<<<<<<< HEAD
 # password_page
 AS AN employee with access to sensitive data
 I WANT to randomly generate a password that meets certain criteria
@@ -36,5 +37,7 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
+=======
+>>>>>>> 89ac13430b45b5b1c9d7c3555a76fe2e27736daa
 ![image](https://user-images.githubusercontent.com/109699848/185475555-5e52e02a-1409-444f-8422-2878dda1e979.png)
 ![image](https://user-images.githubusercontent.com/109699848/185475591-883fc033-81d3-40f3-a905-4f1a1b6c487a.png)
