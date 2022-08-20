@@ -3,13 +3,14 @@ function generatePassword(passwordLength) {
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerChars = "abcdefghijklmnopqrstuvwxyz";
   var specialChars = "!@$%^&*()";
-  var allChars = numberChars + upperChars + lowerChars;
+  var allChars = numberChars + upperChars + lowerChars + specialChars;
   var randPasswordArray = Array(passwordLength);
   randPasswordArray[0] = numberChars;
   randPasswordArray[1] = upperChars;
   randPasswordArray[2] = lowerChars;
   randPasswordArray[3] = specialChars;
-  randPasswordArray = randPasswordArray.fill(allChars, 4);
+  randPasswordArray = randPasswordArray.fill(allChars, 4); 
+  console.log (randPasswordArray)
   return shuffleArray(randPasswordArray.map(function(x) { return x[Math.floor(Math.random() * x.length)] })).join('');
 }
 
@@ -23,22 +24,39 @@ function shuffleArray(array) {
   return array;
 }
 document.getElementById("generate").addEventListener("click", myFunction);
- // var numResult = prompt("How many characters would you like to include? (Must be between 8-128 chararacters.)");
- //if (numResult= i <= 8 and >=128) {
-//document.getElementById("password").value = numResult;
-//}
- //var uppercharResult = prompt("Inlude captitol letters? ")
-//if (uppercharResult = yes){
 
- // }
- // var lowercharResult = prompt("Inlude captitol letters? ")
- //if (uppercharResult = yes){
-
-// }
-// var specialcharResult = prompt("Inlude numbers? ")
-// if (uppercharResult = yes){
-
- //}
 function myFunction() {
-  document.getElementById("password").innerHTML =  (generatePassword(10));
+  var passwordLength = prompt("How many characters would you like to include? (Must be between 8-128 chararacters).");
+  console.log(typeof passwordLength)
+//chose length
+  if (parseInt(passwordLength) >= 8 && (parseInt(passwordLength) <=128)) {
+  console.log("working")
+  } else {
+    alert ("Please pick a number between 8 and 128.");
+    myFunction();
+  } 
+//confirm upper case
+if (confirm("Include Upper Case letters?") == true){
+console.log("working 2")
+} else {
+console.log("working2-no")
+
+  }
+//confirm lower case 
+if (confirm("Include Lower Case letters?") == true){
+  console.log("working 2")
+  } else {
+  console.log("working2-no")
+    
+      }
+//confirm of special characters
+if (confirm("Include Special Characters?") == true){
+  console.log("working 2")
+    } else {
+  console.log("working2-no")
+        
+          }
+
+//generate function
+  document.getElementById("password").innerHTML =  (generatePassword(parseInt(passwordLength)));
 }
